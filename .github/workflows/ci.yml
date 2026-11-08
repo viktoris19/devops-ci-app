@@ -9,7 +9,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 env:
   IMAGE_NAME: ghcr.io/${{ github.repository }}
@@ -68,6 +67,7 @@ jobs:
     # ИНЦИДЕНТ 1: для push в GHCR права пока недостаточно (нет packages: write).
     permissions:
       contents: read
+      packages: write
 
     steps:
       - name: Checkout
