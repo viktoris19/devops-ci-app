@@ -76,7 +76,8 @@ jobs:
         run: echo "IMAGE_NAME=${IMAGE_NAME,,}" >> "$GITHUB_ENV"
 
       - name: Build image
-        run: docker build --tag "devops-ci-app:${GITHUB_SHA}" .
+        run: docker build --platform linux/arm64 --tag "devops-ci-app:${GITHUB_SHA}" .
+
 
       - name: Smoke-test container
         run: |
