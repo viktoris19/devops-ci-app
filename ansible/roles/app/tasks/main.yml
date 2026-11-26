@@ -8,14 +8,14 @@
 - name: Pull reviewed application image
   community.docker.docker_image:
     name: "{{ app_image }}"
-    tag: "{{ app_tag }}-bug"
+    tag: "{{ app_tag }}"
     source: pull
     state: present
 
 - name: Run application container
   community.docker.docker_container:
     name: "{{ app_container_name }}"
-    image: "{{ app_image }}:{{ app_tag }}-bug"
+    image: "{{ app_image }}:{{ app_tag }}"
     state: started
     restart_policy: unless-stopped
     published_ports:
